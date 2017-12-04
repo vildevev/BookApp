@@ -21,7 +21,7 @@ class BookList extends Component {
 	}
 }
 
-// returns the books as this.props 
+// returns the books as this.props on the BookList container 
 function mapStateToProps(state) {
 	return {
 		books: state.books
@@ -32,4 +32,5 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({selectBook: selectBook}, dispatch)
 }
 
-export default connect(mapStateToProps)(BookList);
+// Promote BookList from a component to a contaioner - makes the dispatch method "selectBook" a prop. 
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
